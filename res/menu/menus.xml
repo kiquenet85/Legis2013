@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item1"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 1"
+          android:showAsAction="ifRoom" />
+    <item android:id="@+id/item2"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 2"
+          android:showAsAction="ifRoom"  />
+    <item android:id="@+id/item3"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 3" 
+          android:showAsAction="ifRoom" />
+    <item android:id="@+id/item4"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 4"
+          android:showAsAction="ifRoom" />
+    <item android:id="@+id/item5"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 5" 
+          android:showAsAction="ifRoom" />
+    <item android:id="@+id/item6"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 6" 
+          android:showAsAction="ifRoom" />
+    <item android:id="@+id/item7"
+          android:icon="@drawable/ic_launcher"
+          android:title="Item 7" 
+          android:showAsAction="ifRoom" />
+</menu>
