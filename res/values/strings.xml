@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	
+      <!-- Strings usados para identidad de la empresa -->
+    <string name="app_name">Legis2013</string>
+    <string name="android_layer">Generic Legis2013</string>
+    <string name="menu_settings">"Configuración"</string>
+    <string name="home">Inicio</string>
 
-    <string name="hello">Hello World, MyActionBarActivity!</string>
-    <string name="app_name">MyActionBar</string>
+    <!-- Strings usados para diferentes tipos de Pantalla -->
+    <!-- Nombre campos para Dashboard -->
+    <string name="home_nombre_usuario">Nombre</string>
+    <string name="home_contrasena_usuario">"Contraseña"</string>
+    <string name="home_ingresar">Ingresar</string>
+    <!-- Nombre campos para Perfil-->
+	<string name="perfil_saludo">Bienvenido</string>
+	<string name="perfil_conf">Configuración</string>
+	 <!-- Nombre campos para Conf-->
+	<string name="conf_closeTab">Salvar y Cerrar</string>
+		
+    <!-- Campos String para capa Android -->
+    <string name="title_activity_notificacion">Notificacion</string>
+    
+    <!-- Campos String para Validaciones-->
+    <string name="validation_hora_manana">Buenos Días</string>
+    <string name="validation_hora_tarde">Buenas Tardes</string>
+    <string name="validation_hora_noche">Buenas Noches</string>
 
 </resources>
