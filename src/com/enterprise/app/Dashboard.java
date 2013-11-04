@@ -10,6 +10,8 @@ import validaciones.ValidacionesSeguridad;
 import validaciones.ValidacionesTexto;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -40,10 +42,8 @@ public class Dashboard extends EnterpriseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		// FIXME Revisar Action bar y navegación hacía atrás.
 		// FIXME Los botones del menu se agregan mal en actividades sin Action Bar
-		
 		// -- This enable parent object  to do his job.
 		super.onCreate(savedInstanceState);
-		actionBar.hide();
 		// -- Binding Layout 
 		setContentView(R.layout.app_home);
 		// --Changing title Activity
@@ -98,6 +98,16 @@ public class Dashboard extends EnterpriseActivity {
 				}
 			}
 		});
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		return true;
 	}
 	
 	public void usuarioIncorrecto() {

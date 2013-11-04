@@ -16,7 +16,8 @@
         android:label="@string/app_name" >
         <activity
             android:name="com.enterprise.app.Dashboard"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

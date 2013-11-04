@@ -20,6 +20,7 @@ public class Perfil extends EnterpriseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		actionBar();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_perfil);
 

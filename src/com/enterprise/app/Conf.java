@@ -3,23 +3,27 @@ package com.enterprise.app;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.enterprise.android.DummyTabContent;
+import com.enterprise.android.EnterpriseActivity;
 import com.enterprise.android.R;
 
-public class Conf extends Activity {
+public class Conf extends EnterpriseActivity {
 	TabHost tHost;
 	List<TabHost.TabSpec> allTabs = new ArrayList<TabHost.TabSpec>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		actionBar();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.conf);
 
@@ -140,6 +144,30 @@ public class Conf extends Activity {
 
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			Toast.makeText(this, "You clicked on the Application icon",
+					Toast.LENGTH_LONG).show();
+
+			/* The Intent.FLAG_ACTIVITY_CLEAR_TOP flag ensures that the series of activities in the back stack is
+			cleared when the user clicks the application icon on the Action Bar. This way, if the user clicks the
+			back button, the other activities in the application do not appear again.*/
+			Intent i=null;
+				i = new Intent(this, Perfil.class);
+				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(i);
+			return true;
+		}
+		return true;
+	}
+	
 	public void removeTab(View view) {
 		String TagName = tHost.getCurrentTabTag();
 

@@ -12,6 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.enterprise.app.Dashboard;
+import com.enterprise.app.Perfil;
+
 /**
  * @author Nestor
  * 
@@ -24,11 +27,7 @@ public class EnterpriseActivity extends Activity{
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        //actionBar.setDisplayShowHomeEnabled(true);
-        //actionBar.hide();
-        //actionBar.show(); //---show it again---
+		//actionBar();
 		super.onCreate(savedInstanceState);
 		// Initialize Activity and inflate the UI.
 		Log.d(tag, "In the onCreate() event");
@@ -114,6 +113,14 @@ public class EnterpriseActivity extends Activity{
 		Log.d(tag, "In the onDestroy() event");
 	}
 
+	public void actionBar()
+	{
+		actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        //actionBar.setDisplayShowHomeEnabled(true);
+        //actionBar.hide();
+        //actionBar.show(); //---show it again---
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -166,10 +173,18 @@ public class EnterpriseActivity extends Activity{
 			Toast.makeText(this, "You clicked on the Application icon",
 					Toast.LENGTH_LONG).show();
 
-			Intent i = new Intent(this, EnterpriseActivity.class);
-			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			/* The Intent.FLAG_ACTIVITY_CLEAR_TOP flag ensures that the series of activities in the back stack is
+			cleared when the user clicks the application icon on the Action Bar. This way, if the user clicks the
+			back button, the other activities in the application do not appear again.*/
+			Intent i=null;
+			if (this instanceof Perfil){
+				i = new Intent(this, Dashboard.class);
+				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			}else{
+				i = new Intent(this, Perfil.class);
+				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			}
 			startActivity(i);
-
 			return true;
 		case 0:
 			Toast.makeText(this, "You clicked on Item 1", Toast.LENGTH_LONG)
