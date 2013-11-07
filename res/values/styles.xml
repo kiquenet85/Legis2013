@@ -1,0 +1,24 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Este es el estilo de la aplicacíon-->
+    <style name="AppTheme" parent="@android:style/Theme.Light" />
+
+    <!--Definición de colores-->
+    <color name="title_color">#b0b0ff</color>
+    <color name="other_color">#0000ff</color>
+    
+	<!--Este es un estilo Personalizado llamado CodeFont -->
+    <style name="CodeFont" parent="@android:style/Theme.Light">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/title_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    
+    <!--Este es un estilo Personalizado que hereda de CodeFont y se llama CodeFont.other-->
+    <style name="CodeFont.other">
+        <item name="android:textColor">@color/other_color</item>
+    </style>
+
+</resources>
