@@ -65,8 +65,8 @@
             style="@style/CodeFont"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/try_again_button_bg"
-            android:textColor="@drawable/try_again_button_text" />
+            android:background="@drawable/selector_dashboard_try_again_button_bg"
+            android:textColor="@drawable/selector_dashboard_try_again_button_text" />
     </LinearLayout>
 
 </LinearLayout>

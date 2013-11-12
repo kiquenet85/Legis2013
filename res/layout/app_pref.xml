@@ -1,0 +1,92 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignLeft="@+id/app_pref_include1"
+    android:layout_alignParentTop="true"
+    android:background="@color/default_screen_bg"
+     >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/default_screen_bg"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <include
+            android:id="@+id/app_pref_include1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            layout="@layout/custom_progress_bar" />
+
+        <TextView
+            android:id="@+id/app_pref_textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/app_pref_include1"
+            android:text="@string/pref_questionary" />
+
+        <include
+            android:id="@+id/app_pref_include2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/app_pref_textView1"
+            layout="@layout/custom_seekbar_volume" />
+
+        <TextView
+            android:id="@+id/app_pref_textView2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/app_pref_include2"
+            android:text="@string/pref_questionary1" />
+
+        <SeekBar
+            android:id="@+id/app_pref_seekBar1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/app_pref_textView2" />
+
+        <TextView
+            android:id="@+id/app_pref_textView3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/app_pref_seekBar1"
+            android:text="@string/pref_questionary2" />
+
+        <Button
+            android:id="@+id/app_pref_button1"
+            style="?android:attr/buttonStyleInset"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/app_pref_textView3"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/app_pref_button1"
+            android:layout_gravity="bottom"
+            android:background="@color/default_screen_bg"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin" >
+
+            <Button
+                android:id="@+id/app_pref_button2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

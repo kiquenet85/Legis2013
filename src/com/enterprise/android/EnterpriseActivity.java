@@ -7,9 +7,12 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.enterprise.app.Dashboard;
@@ -19,15 +22,20 @@ import com.enterprise.app.Perfil;
  * @author Nestor
  * 
  */
-public class EnterpriseActivity extends Activity{
-	//-- Layout
-	protected  ActionBar actionBar;
-	//-- Custom Variables
+public class EnterpriseActivity extends Activity {
+	// -- Layout
+	protected ActionBar actionBar;
+	// -- Custom Variables
 	private String tag = "EnterpriseLog";
+
+	// --Progress Bar
+	static int progress;
+	int progressStatus = 0;
+	Handler handler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		//actionBar();
+		// actionBar();
 		super.onCreate(savedInstanceState);
 		// Initialize Activity and inflate the UI.
 		Log.d(tag, "In the onCreate() event");
@@ -113,21 +121,21 @@ public class EnterpriseActivity extends Activity{
 		Log.d(tag, "In the onDestroy() event");
 	}
 
-	public void actionBar()
-	{
+	public void actionBar() {
 		actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        //actionBar.setDisplayShowHomeEnabled(true);
-        //actionBar.hide();
-        //actionBar.show(); //---show it again---
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		// actionBar.setDisplayShowHomeEnabled(true);
+		// actionBar.hide();
+		// actionBar.show(); //---show it again---
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		CreateMenu(menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		return MenuChoice(item);
@@ -173,14 +181,18 @@ public class EnterpriseActivity extends Activity{
 			Toast.makeText(this, "You clicked on the Application icon",
 					Toast.LENGTH_LONG).show();
 
-			/* The Intent.FLAG_ACTIVITY_CLEAR_TOP flag ensures that the series of activities in the back stack is
-			cleared when the user clicks the application icon on the Action Bar. This way, if the user clicks the
-			back button, the other activities in the application do not appear again.*/
-			Intent i=null;
-			if (this instanceof Perfil){
+			/*
+			 * The Intent.FLAG_ACTIVITY_CLEAR_TOP flag ensures that the series
+			 * of activities in the back stack is cleared when the user clicks
+			 * the application icon on the Action Bar. This way, if the user
+			 * clicks the back button, the other activities in the application
+			 * do not appear again.
+			 */
+			Intent i = null;
+			if (this instanceof Perfil) {
 				i = new Intent(this, Dashboard.class);
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			}else{
+			} else {
 				i = new Intent(this, Perfil.class);
 				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			}
@@ -210,4 +222,51 @@ public class EnterpriseActivity extends Activity{
 		return false;
 	}
 
+	/**
+	 * @author Nestor
+	 * @param It use the progress bar from the current activity. The activity
+	 * must include the progress bar layout. (custom_progress_bar)
+	 * @return It does not return nothing just shows progress bar
+	 * */
+	public void showProgressBar(final ProgressBar progressBar) {
+		// TODO The controller must execute the real work doSomeWork()
+		progress = 0;
+		//progressBar = (ProgressBar) findViewById(R.id.progressbar);
+		progressBar.setMax(100);
+		// ---do some work in background thread---
+		new Thread(new Runnable() {
+			public void run() {
+				// —-do some work here—-
+				while (progressStatus < 100) {
+					progressStatus = doSomeWork();
+
+					// —-Update the progress bar—-
+					handler.post(new Runnable() {
+						public void run() {
+							progressBar.setProgress(progressStatus);
+						}
+					});
+				}
+
+				// ---hides the progress bar---
+				handler.post(new Runnable() {
+					public void run() {
+						// ---0 - VISIBLE; 4 - INVISIBLE; 8 - GONE---
+						progressBar.setVisibility(View.GONE);
+					}
+				});
+			}
+
+			// ---do some long running work here---
+			private int doSomeWork() {
+				try {
+					// ---simulate doing some work---
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				return ++progress;
+			}
+		}).start();
+	}
 }

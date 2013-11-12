@@ -6,6 +6,7 @@ package com.enterprise.app;
 import main.Contexto;
 import system.persona.Persona;
 import system.persona.Recurso;
+import utileria.NotiEnum;
 import validaciones.ValidacionesSeguridad;
 import validaciones.ValidacionesTexto;
 import android.content.Intent;
@@ -40,12 +41,10 @@ public class Dashboard extends EnterpriseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// FIXME Revisar Action bar y navegación hacía atrás.
-		// FIXME Los botones del menu se agregan mal en actividades sin Action Bar
 		// -- This enable parent object  to do his job.
 		super.onCreate(savedInstanceState);
 		// -- Binding Layout 
-		setContentView(R.layout.app_home);
+		setContentView(R.layout.app_dashboard);
 		// --Changing title Activity
 		this.setTitle(getResources().getString(R.string.home));
 
@@ -111,6 +110,6 @@ public class Dashboard extends EnterpriseActivity {
 	}
 	
 	public void usuarioIncorrecto() {
-		Notificacion.notificar(this, notificationID);
+		Notificacion.notificar(this, notificationID, NotiEnum.INTENTOS_INGRESO_3,"USUARIO INCORRECTO","INGRESO APP");
 	}
 }

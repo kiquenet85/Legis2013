@@ -1,17 +1,14 @@
 package main;
 
-import java.util.Properties;
-
 import system.persona.Persona;
-
+import utileria.NotiEnum;
 
 public class Contexto {
- /**Un posible usuario en el sistema*/
- public static Long resId;
- /**Un posible usuario en el sistema*/
- public static Long informanteId;
- /**Objeto Persona que se encuentra en el sistema.*/
- public static Persona usuario;
- 
- 
+
+	/** Objeto Persona que se encuentra en el sistema. */
+	public static Persona usuario;
+
+	/** Objeto que contiene el tipo de Notificación a lanzar. */
+	public static NotiEnum notif=NotiEnum.INTENTOS_INGRESO_3;
+	
 }

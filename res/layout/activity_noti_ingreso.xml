@@ -5,9 +5,10 @@
     android:gravity="center_vertical" >
 
     <TextView
+        android:id="@+id/activity_noti_ingreso_textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Prueba"
+        android:text="@string/noti_ingreso_txt"
         tools:context=".Notificacion" />
 
 </LinearLayout>

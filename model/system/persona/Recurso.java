@@ -1,5 +1,5 @@
 package system.persona;
-import utileria.RecursoEnum;
+import utileria.NotiEnum;
 
 /**
  * @author Nestor
@@ -9,17 +9,17 @@ import utileria.RecursoEnum;
 public class Recurso extends Persona {
 
 	private Long id;
-	public RecursoEnum tipo;
+	public NotiEnum tipo;
 
 	public Recurso(){
 
 	}
 
-	public RecursoEnum getTipo() {
+	public NotiEnum getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(RecursoEnum m_RecursoEnum) {
+	public void setTipo(NotiEnum m_RecursoEnum) {
 		this.tipo = m_RecursoEnum;
 	}
 

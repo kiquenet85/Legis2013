@@ -3,6 +3,8 @@ package com.enterprise.app;
 import java.util.ArrayList;
 import java.util.List;
 
+import utileria.NotiEnum;
+
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -15,9 +17,12 @@ import android.widget.Toast;
 
 import com.enterprise.android.DummyTabContent;
 import com.enterprise.android.EnterpriseActivity;
+import com.enterprise.android.Notificacion;
 import com.enterprise.android.R;
 
 public class Conf extends EnterpriseActivity {
+	//-- Notification
+	private int notificationID = 2;
 	TabHost tHost;
 	List<TabHost.TabSpec> allTabs = new ArrayList<TabHost.TabSpec>();
 
@@ -25,7 +30,7 @@ public class Conf extends EnterpriseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		actionBar();
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.conf);
+		setContentView(R.layout.app_conf);
 
 		tHost = (TabHost) findViewById(android.R.id.tabhost);
 		tHost.setup();
@@ -119,7 +124,7 @@ public class Conf extends EnterpriseActivity {
 		/** Defining tab builder for Andriod tab */
 		TabHost.TabSpec tSpecAndroid = tHost.newTabSpec("android");
 		tSpecAndroid.setIndicator("Android",
-				getResources().getDrawable(R.drawable.android));
+				getResources().getDrawable(R.drawable.selector_conf_android));
 		tSpecAndroid.setContent(new DummyTabContent(getBaseContext()));
 		tHost.addTab(tSpecAndroid);
 		allTabs.add(tSpecAndroid);
@@ -127,7 +132,7 @@ public class Conf extends EnterpriseActivity {
 		/** Defining tab builder for Apple tab */
 		TabHost.TabSpec tSpecApple = tHost.newTabSpec("apple");
 		tSpecApple.setIndicator("Apple",
-				getResources().getDrawable(R.drawable.apple));
+				getResources().getDrawable(R.drawable.selector_conf_apple));
 		tSpecApple.setContent(new DummyTabContent(getBaseContext()));
 		tHost.addTab(tSpecApple);
 		allTabs.add(tSpecApple);
@@ -188,6 +193,7 @@ public class Conf extends EnterpriseActivity {
 				tHost.addTab(t);
 			}
 		} else {
+			Notificacion.notificar(this, notificationID, NotiEnum.USUARIO_MENSAJE,"PROMO","Oferta");
 			this.finish();
 		}
 
