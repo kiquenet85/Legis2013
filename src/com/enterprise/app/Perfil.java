@@ -11,13 +11,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.enterprise.android.EnterpriseActivity;
+import com.enterprise.android.MapEnterprise;
 import com.enterprise.android.R;
 
 public class Perfil extends EnterpriseActivity {
 
 	private TextView nombreUsuario;
-	private Button botonConf;
-	private Button botonPref;
+	private Button botonConf,botonPref,botonMap;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,13 @@ public class Perfil extends EnterpriseActivity {
 
 		botonConf = (Button) findViewById(R.id.app_perfil_button1);
 		botonConf.setText(getString(R.string.perfil_conf));
+		botonMap = (Button) findViewById(R.id.app_perfil_button3);
+		botonMap.setText(getString(R.string.perfil_map));
 		botonPref = (Button) findViewById(R.id.app_perfil_button2);
 		botonPref.setText(getString(R.string.perfil_pref));
 		botonConf.setOnClickListener(myListener);
 		botonPref.setOnClickListener(myListener);
+		botonMap.setOnClickListener(myListener);
 	}
 
 	private OnClickListener myListener = new OnClickListener() {
@@ -50,6 +53,9 @@ public class Perfil extends EnterpriseActivity {
 				v.getContext().startActivity(i);
 			} else if (v.getId() == botonPref.getId()) {
 				Intent i = new Intent(Perfil.this, Pref.class);
+				v.getContext().startActivity(i);
+			}else if (v.getId() == botonMap.getId()) {
+				Intent i = new Intent(Perfil.this, MapEnterprise.class);
 				v.getContext().startActivity(i);
 			}
 		}

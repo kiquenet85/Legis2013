@@ -16,9 +16,10 @@
     <string name="perfil_saludo">Bienvenido</string>
     <string name="perfil_conf">Configuración</string>
     <string name="perfil_pref">Preferencias</string>
+    <string name="perfil_map">Dónde estoy?</string>
     <!-- Nombre campos para Conf -->
     <string name="conf_closeTab">Salvar y Cerrar</string>
-     <!-- Nombre campos para Pref -->
+    <!-- Nombre campos para Pref -->
     <string name="pref_questionary">Aquí podrá editar sus preferencias, para visualizar su aplicación:</string>
     <string name="pref_questionary1">Seleccione aquí el tamaño de letra</string>
     <string name="pref_questionary2">Por favor registre su fecha de cumpleaños, para promociones</string>
@@ -36,5 +37,6 @@
     <string name="title_activity_pref">Preferencias</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_map_enterprise">MapEnterprise</string>
 
 </resources>
